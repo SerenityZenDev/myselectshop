@@ -108,7 +108,7 @@ public class ProductService {
         Sort sort = Sort.by(direction, sortBy);
         Pageable pageable = PageRequest.of(page,size,sort);
 
-        Page<Product> productList = productRepository.findAllByUserAndProductFolderList_FolderId(user, folderId);
+        Page<Product> productList = productRepository.findAllByUserAndProductFolderList_FolderId(user, folderId, pageable);
 
         Page<ProductResponseDto> responseDtoList = productList.map(ProductResponseDto::new);
 
